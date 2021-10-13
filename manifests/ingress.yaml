@@ -1,17 +1,16 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: echo-ingress
-  annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
+  name: <INGRESS_NAME>
 spec:
   rules:
-    - http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: goecho
-                port:
-                  number: 80
+  - host: <HOST_URL>
+    http:
+      paths:
+      - path: <URL_PATH>
+        pathType: <PATH_TYPE>
+        backend:
+          service:
+            name: <SERVICE_NAME>
+            port:
+              number: <SERVICE_PORT>
